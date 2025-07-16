@@ -1,0 +1,25 @@
+{
+  "name": "oct24-t2w11-express-docker2",
+  "version": "1.0.0",
+  "description": "Express app and MongoDB all containerised",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hernan-vela/oct24-t2w11-express-docker2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hernan-vela/oct24-t2w11-express-docker2/issues"
+  },
+  "homepage": "https://github.com/hernan-vela/oct24-t2w11-express-docker2#readme",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.16.3"
+  }
+}
