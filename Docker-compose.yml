@@ -1,11 +1,12 @@
 name: Super Cool Compose Stack
 services:
   api:
-    image: mysupercoolapp:somefancytag
+    image: mysupercoolapp:latest-${NODE_ENV}
     build: .
     env_file: .env
     environment:
-      - DATABASE_URL=mongo://mongo:27017/mycoolappdatabase
+    # Interpolated variables can have a fallback value using ":-", e.g. ${NODE_ENV:-somevariable}
+      - DATABASE_URL=mongo://mongo:27017/mycoolappdatabase-${NODE_ENV:-somevariable}
       - PORT=3000
     ports:
       - 5432:3000
@@ -18,6 +19,10 @@ services:
     volumes: 
       # - ./mongodbdata:/data/db
       - mongodb-data:/data/db
+
+# Using volumes like this sotres the data in a Docker-managed location, typically a hidden folder.
+# e.g. \\CoderAcademy\MAR25\docker-data\docker\volumes ....I chose this on my Mac
+# or   /var/lib/docker/volumes on Linux-based systems, such as Mac 
 volumes:
   mongodb-data:
     driver: local
