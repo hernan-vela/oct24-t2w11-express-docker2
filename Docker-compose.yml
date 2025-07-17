@@ -1,0 +1,23 @@
+name: Super Cool Compose Stack
+services:
+  api:
+    image: mysupercoolapp:somefancytag
+    build: .
+    env_file: .env
+    environment:
+      - DATABASE_URL=mongo://mongo:27017/mycoolappdatabase
+      - PORT=3000
+    ports:
+      - 5432:3000
+      - 65535:3000
+      - 1025:3000
+  mongo:
+    image: mongo
+    ports:
+      - 54321:27017
+    volumes: 
+      # - ./mongodbdata:/data/db
+      - mongodb-data:/data/db
+volumes:
+  mongodb-data:
+    driver: local
